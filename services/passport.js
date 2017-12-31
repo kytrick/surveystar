@@ -6,6 +6,21 @@ const keys = require("../config/keys");
 // pull a model out of mongoose
 const User = mongoose.model("users");
 
+// note that this is oauth strategy agnostic
+// since we use user.id instead of profile.id
+// this turns a user into an id
+// (puts information into cookie)
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+// turn id back into user (pull user out of cookie)
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user);
+  });
+});
+
 passport.use(
   new GoogleStrategy(
     {
