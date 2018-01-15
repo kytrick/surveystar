@@ -59,3 +59,5 @@ typings/
 
 # secrets
 dev.js
+.env.development
+.env.production
