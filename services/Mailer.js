@@ -30,7 +30,7 @@ class Mailer extends helper.Mail {
   }
   // kinda sendgrid template
   addClickTracking() {
-    const trackingSettings = new helper.TrackignSettings();
+    const trackingSettings = new helper.TrackingSettings();
     const clickTracking = new helper.ClickTracking(true, true);
 
     trackingSettings.setClickTracking(clickTracking);
