@@ -1,3 +1,5 @@
+const keys = require('../../config/keys');
+
 module.exports = survey => {
   //all the html in any email we send out
   //return '<div>' + survey.body + '</div>';
@@ -9,10 +11,10 @@ module.exports = survey => {
         <p>Please answer the following question:</p>
         <p>${survey.body}</p>
         <div>
-          <a href="http://localhost:3000">Yes</a>
+          <a href="${keys.redirectDomain}/api/surveys/thanks">Yes</a>
         </div>
         <div>
-          <a href="http://localhost:3000">No</a>
+          <a href="${keys.redirectDomain}/api/surveys/thanks">No</a>
         </div>
         </div>
       </body>
