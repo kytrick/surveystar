@@ -10,6 +10,13 @@ module.exports = app => {
   app.get('/api/surveys/thanks', (req, res) => {
     res.send('Thanks for voting!');
   });
+
+  //testing sendgrid localtunnel
+  app.post('/api/surveys/webhooks', (req, res) => {
+    console.log(req.body);
+    res.send({});
+  });
+
   // this post request route handler will both create a new survey and send out
   // a big email
   // check if user is logged in and authenticated
