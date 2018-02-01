@@ -26,7 +26,11 @@ module.exports = app => {
       }
     });
     // res.send({});
-    console.log(events);
+    // console.log(events);
+    const compactEvents = _.compact(events); //returns only event objects.  no undefineds.
+    const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId'); // remove duplicates!
+    console.log(uniqueEvents);
+    res.send({});
   });
 
   // this post request route handler will both create a new survey and send out
