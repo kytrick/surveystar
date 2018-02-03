@@ -27,7 +27,7 @@ module.exports = app => {
     console.log(req.body);
     _.chain(req.body) //iterate over req.body
       .map(({ email, url }) => {
-        console.log('i hate this url', url);
+        console.log('i hate this url.pathname?', new URL(url).pathname);
         const match = p.test(new URL(url).pathname);
         if (match) {
           console.log('matched:', match);
