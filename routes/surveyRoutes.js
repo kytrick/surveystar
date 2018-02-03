@@ -30,6 +30,7 @@ module.exports = app => {
         console.log('i hate this url', url);
         const match = p.test(new URL(url).pathname);
         if (match) {
+          console.log('matched:', match);
           return { email, surveyId: match.surveyId, choice: match.choice };
         }
       })
