@@ -26,6 +26,7 @@ module.exports = app => {
     const p = new Path('/api/surveys/:surveyId/:choice');
     _.chain(req.body) //iterate over req.body
       .map(({ email, url }) => {
+        console.log('i hate this url', url);
         const match = p.test(new URL(url).pathname);
         if (match) {
           return { email, surveyId: match.surveyId, choice: match.choice };
